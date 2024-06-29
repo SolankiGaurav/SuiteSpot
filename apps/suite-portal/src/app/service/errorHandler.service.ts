@@ -14,6 +14,8 @@ export class ErrorHandlerService {
 
     this.snackBar.open(errorMessage, 'Close', {
       duration: 3000,
+      verticalPosition:'top',
+      horizontalPosition:'right'
     });
 
     return throwError(() => new Error(error.error));

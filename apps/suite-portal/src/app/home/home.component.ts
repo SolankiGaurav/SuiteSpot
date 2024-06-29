@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ALL_SERVICE_TYPES } from '@suiteportal/api-interfaces';
 import { MaintenanceRequestService } from '../service/maintainenceRequest.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'pm-home',
@@ -11,7 +12,11 @@ import { MaintenanceRequestService } from '../service/maintainenceRequest.servic
 export class HomeComponent implements OnInit {
   serviceTypes = ALL_SERVICE_TYPES;
 
-  constructor(private fb: FormBuilder,private maintaineceRequestService:MaintenanceRequestService) {}
+  constructor(
+    private fb: FormBuilder,
+    private maintaineceRequestService: MaintenanceRequestService,
+    private snackbar: MatSnackBar
+  ) {}
 
   ngOnInit(): void {}
 
@@ -26,10 +31,24 @@ export class HomeComponent implements OnInit {
 
   submitRequest() {
     console.log(this.maintainenceForm.value);
-    this.maintaineceRequestService.submitMaintainenceRequest(this.maintainenceForm.value).subscribe((data)=>{
-      console.log(data);
-    },(err)=>{
-      console.log(err);
-    })
+    this.maintaineceRequestService
+      .submitMaintainenceRequest(this.maintainenceForm.value)
+      .subscribe(
+        (_data) => {
+          this.snackbar.open('Request submitted successfully', 'okay', {
+            duration: 2000,
+            horizontalPosition: 'right',
+            verticalPosition: 'top',
+          });
+          this.resetForm();
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+  }
+
+  resetForm() {
+    this.maintainenceForm.reset();
   }
 }
