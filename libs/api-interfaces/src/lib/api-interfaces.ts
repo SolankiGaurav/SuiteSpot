@@ -25,6 +25,8 @@ export interface MaintenanceRequest {
   summary: string;
   // Any extra details
   details?: string;
+
+  isClosed?:boolean;
 }
 
 export enum USER_ROLE {

@@ -7,6 +7,8 @@ import {
   Param,
   UseGuards,
   Put,
+  HttpCode,
+  HttpStatus,
 } from '@nestjs/common';
 import { MaintenanceRequest } from '@suiteportal/api-interfaces';
 import { MaintenanceRequestService } from './maintenance-request.service';
@@ -39,6 +41,8 @@ export class MaintenanceRequestController {
     return this.maintenanceRequestService.getMaintenanceRequest(id);
   }
 
+  @HttpCode(200)
+  @UseGuards(AuthGuard)
   @Put('/:id/close')
   closeMaintaineceRequest(@Param('id') id: string) {
     if (!id) {
@@ -48,6 +52,7 @@ export class MaintenanceRequestController {
   }
 
   @Get()
+  @UseGuards(AuthGuard)
   getAllMaintaineceRequests() {
     return this.maintenanceRequestService.getAllMaintaienceRequests();
   }

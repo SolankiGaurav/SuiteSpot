@@ -1,0 +1,68 @@
+<h1>Open Requests</h1>
+<table mat-table [dataSource]="openRequests" class="mat-elevation-z8">
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef>Email</th>
+    <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="unitNumber">
+    <th mat-header-cell *matHeaderCellDef>UnitNumber</th>
+    <td mat-cell *matCellDef="let element">{{ element.unitNumber }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="serviceType">
+    <th mat-header-cell *matHeaderCellDef>Service-Type</th>
+    <td mat-cell *matCellDef="let element">{{ element.serviceType }}</td>
+  </ng-container>
+  <ng-container matColumnDef="summary">
+    <th mat-header-cell *matHeaderCellDef>Summary</th>
+    <td mat-cell *matCellDef="let element">{{ element.summary }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef>Action</th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-raised-button color="primary" (click)="onActionClick(element)">
+        Close Request
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+
+<h1>Close Requests</h1>
+<table mat-table [dataSource]="closeRequests" class="mat-elevation-z8">
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef>Email</th>
+    <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="unitNumber">
+    <th mat-header-cell *matHeaderCellDef>UnitNumber</th>
+    <td mat-cell *matCellDef="let element">{{ element.unitNumber }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="serviceType">
+    <th mat-header-cell *matHeaderCellDef>Service-Type</th>
+    <td mat-cell *matCellDef="let element">{{ element.serviceType }}</td>
+  </ng-container>
+  <ng-container matColumnDef="summary">
+    <th mat-header-cell *matHeaderCellDef>Summary</th>
+    <td mat-cell *matCellDef="let element">{{ element.summary }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumnsClosed"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumnsClosed"></tr>
+</table>
