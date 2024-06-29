@@ -37,7 +37,7 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
 
-<h1>Close Requests</h1>
+<h1>Closed Requests</h1>
 <table mat-table [dataSource]="closeRequests" class="mat-elevation-z8">
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef>Name</th>
@@ -66,3 +66,6 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumnsClosed"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumnsClosed"></tr>
 </table>
+
+
+<statistics-component [statsData]="statistics" ></statistics-component>

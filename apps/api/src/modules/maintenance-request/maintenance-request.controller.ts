@@ -33,6 +33,12 @@ export class MaintenanceRequestController {
     );
   }
 
+  @Get('/stats')
+  @UseGuards(AuthGuard)
+  getRequestsStats() {
+    return this.maintenanceRequestService.getStatsFromRequest();
+  }
+
   @Get('/:id')
   getMaintenanceRequest(@Param('id') id: string) {
     if (!id) {
@@ -56,4 +62,6 @@ export class MaintenanceRequestController {
   getAllMaintaineceRequests() {
     return this.maintenanceRequestService.getAllMaintaienceRequests();
   }
+
+
 }

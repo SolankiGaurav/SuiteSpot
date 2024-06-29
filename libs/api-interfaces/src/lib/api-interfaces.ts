@@ -6,10 +6,10 @@ export enum ServiceType {
 }
 
 export const ALL_SERVICE_TYPES = [
-  ServiceType.Electrical ,
-  ServiceType.General ,
-  ServiceType.PestControl ,
-  ServiceType.Plumbing ,
+  ServiceType.Electrical,
+  ServiceType.General,
+  ServiceType.PestControl,
+  ServiceType.Plumbing,
 ];
 
 export interface MaintenanceRequest {
@@ -26,7 +26,7 @@ export interface MaintenanceRequest {
   // Any extra details
   details?: string;
 
-  isClosed?:boolean;
+  isClosed?: boolean;
 }
 
 export enum USER_ROLE {
@@ -44,4 +44,8 @@ export interface IUser {
   password: string;
 }
 
-
+export interface IStatistics {
+  serviceType: string;
+  openCount: number;
+  closedCount: number;
+}
