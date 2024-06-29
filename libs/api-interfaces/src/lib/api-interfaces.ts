@@ -27,3 +27,19 @@ export interface MaintenanceRequest {
   details?: string;
 }
 
+export enum USER_ROLE {
+  ADMIN = 'admin',
+  CLIENT = 'client',
+}
+
+export const ALL_USER_TYPES = [USER_ROLE.ADMIN, USER_ROLE.CLIENT];
+
+export interface IUser {
+  username: string;
+
+  role?: USER_ROLE;
+
+  password: string;
+}
+
+
