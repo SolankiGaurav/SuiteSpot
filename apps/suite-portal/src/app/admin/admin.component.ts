@@ -27,6 +27,7 @@ export class AdminComponent implements OnInit{
 
   onActionClick(element:MaintenanceRequest){
     this.adminService.closeMaintaineceRequest(element['_id']).subscribe((data)=>{
+      this.getRequestsStats();
       this.openRequests = this.openRequests.filter(req=>req['_id']!==data['_id']);
       this.closeRequests = [...this.closeRequests,data];
     },(err)=>{

@@ -27,7 +27,11 @@
   <ng-container matColumnDef="action">
     <th mat-header-cell *matHeaderCellDef>Action</th>
     <td mat-cell *matCellDef="let element">
-      <button mat-raised-button color="primary" (click)="onActionClick(element)">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="onActionClick(element)"
+      >
         Close Request
       </button>
     </td>
@@ -67,5 +71,4 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumnsClosed"></tr>
 </table>
 
-
-<statistics-component [statsData]="statistics" ></statistics-component>
+<statistics-component [statsData]="statistics"></statistics-component>
