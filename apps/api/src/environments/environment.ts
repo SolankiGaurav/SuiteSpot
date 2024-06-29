@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  MONGO_URI:'mongodb+srv://gaurav:Is2BrjiiKHkya3uJ@testcluster.wrqrqpu.mongodb.net/suitespot?retryWrites=true&w=majority&appName=testCluster',
+  MONGO_URI:'Enter mongo uri',
   JWT_SECRET:'suiteSpot',
   JWT_EXPIRES_IN:'1d'
 };
